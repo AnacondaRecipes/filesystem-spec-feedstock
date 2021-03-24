@@ -1,6 +1,6 @@
-{% set version = "0.8.3" %}
+{% set version = "0.8.7" %}
 {% set name = "fsspec" %}
-{% set sha256 = "aad96c98b7f73bc437bb024e7cb3b0943c61049f95d6c5edec5b8b8850fd0875" %}
+{% set sha256 = "4b11557a90ac637089b10afa4c77adf42080c0696f6f2771c41ce92d73c41432" %}
 
 package:
   name: fsspec
@@ -18,11 +18,11 @@ build:
 
 requirements:
   host:
-    - python >=3.5
+    - python >=3.6
     - pip
     - jinja2
   run:
-    - python >=3.5
+    - python >=3.6
 
 test:
   imports:
