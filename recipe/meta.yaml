@@ -1,6 +1,6 @@
-{% set version = "0.9.0" %}
+{% set version = "2021.6.0" %}
 {% set name = "fsspec" %}
-{% set sha256 = "3f7a62547e425b0b336a6ac2c2e6c6ac824648725bc8391af84bb510a63d1a56" %}
+{% set sha256 = "931961514c67acab86519ca16985491e639ebf992dbc3a1aae24d44202b52426" %}
 
 package:
   name: fsspec
@@ -20,6 +20,8 @@ requirements:
   host:
     - python >=3.6
     - pip
+    - wheel
+    - setuptools
     - jinja2
   run:
     - python >=3.6
@@ -27,12 +29,26 @@ requirements:
 test:
   imports:
     - fsspec
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/martindurant/filesystem_spec
   license: BSD-3-Clause
   license_file: LICENSE
+  license_family: BSD
   summary: A specification for pythonic filesystems
+  dev_url: https://github.com/intake/filesystem_spec
+  doc_url: https://filesystem-spec.readthedocs.io
+  doc_source_url: https://github.com/intake/filesystem_spec/tree/master/docs
+  description:
+    To produce a template or specification for a file-system interface, that specific implementations should follow,
+    so that applications making use of them can rely on a common behaviour and not have to worry about the specific internal
+    implementation decisions with any given backend. Many such implementations are included in this package, or in sister projects such as s3fs and gcsfs.
+    In addition, if this is well-designed, then additional functionality, such as a key-value store or FUSE mounting of the
+    file-system implementation may be available for all implementations "for free".
 
 extra:
   recipe-maintainers:
