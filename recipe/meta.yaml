@@ -1,6 +1,6 @@
-{% set version = "0.8.3" %}
+{% set version = "2021.8.1" %}
 {% set name = "fsspec" %}
-{% set sha256 = "aad96c98b7f73bc437bb024e7cb3b0943c61049f95d6c5edec5b8b8850fd0875" %}
+{% set sha256 = "af125917788b77782899bbd4484d29e5407f53d2bb04cdfa025fe4931201a555" %}
 
 package:
   name: fsspec
@@ -18,21 +18,27 @@ build:
 
 requirements:
   host:
-    - python >=3.5
+    - python >=3.6
     - pip
     - jinja2
   run:
-    - python >=3.5
+    - python >=3.6
 
 test:
+  requires:
+    - pip
   imports:
     - fsspec
+  commands:
+    - pip check
 
 about:
   home: https://github.com/martindurant/filesystem_spec
   license: BSD-3-Clause
   license_file: LICENSE
   summary: A specification for pythonic filesystems
+  dev_url: https://github.com/intake/filesystem_spec
+  doc_url: https://filesystem-spec.readthedocs.io
 
 extra:
   recipe-maintainers:
