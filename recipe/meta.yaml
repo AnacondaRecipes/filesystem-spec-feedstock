@@ -2,6 +2,7 @@
 {% set name = "fsspec" %}
 {% set sha256 = "af125917788b77782899bbd4484d29e5407f53d2bb04cdfa025fe4931201a555" %}
 
+
 package:
   name: fsspec
   version: {{ version }}
@@ -20,6 +21,8 @@ requirements:
   host:
     - python >=3.6
     - pip
+    - wheel
+    - setuptools
     - jinja2
   run:
     - python >=3.6
@@ -36,6 +39,7 @@ about:
   home: https://github.com/martindurant/filesystem_spec
   license: BSD-3-Clause
   license_file: LICENSE
+  license_family: BSD
   summary: A specification for pythonic filesystems
   dev_url: https://github.com/intake/filesystem_spec
   doc_url: https://filesystem-spec.readthedocs.io
