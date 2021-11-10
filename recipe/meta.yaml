@@ -1,6 +1,6 @@
-{% set version = "2021.8.1" %}
+{% set version = "2021.10.1" %}
 {% set name = "fsspec" %}
-{% set sha256 = "af125917788b77782899bbd4484d29e5407f53d2bb04cdfa025fe4931201a555" %}
+{% set sha256 = "c245626e3cb8de5cd91485840b215a385fa6f2b0f6ab87978305e99e2d842753" %}
 
 
 package:
@@ -14,22 +14,24 @@ source:
 
 build:
   number: 0
+  skip: True  # [py<36]
   noarch: python
   script: {{ PYTHON }}  -m pip install . --no-deps --ignore-installed -vv
 
 requirements:
   host:
-    - python >=3.6
-    - pip
-    - wheel
-    - setuptools
+    - python
     - jinja2
+    - pip
+    - setuptools
+    - wheel
   run:
     - python >=3.6
 
 test:
   requires:
     - pip
+    - python <3.10
   imports:
     - fsspec
   commands:
