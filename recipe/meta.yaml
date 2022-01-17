@@ -1,6 +1,6 @@
-{% set version = "2021.10.1" %}
+{% set version = "2022.1.0" %}
 {% set name = "fsspec" %}
-{% set sha256 = "c245626e3cb8de5cd91485840b215a385fa6f2b0f6ab87978305e99e2d842753" %}
+{% set sha256 = "0bdd519bbf4d8c9a1d893a50b5ebacc89acd0e1fe0045d2f7b0e0c1af5990edc" %}
 
 
 package:
@@ -34,6 +34,7 @@ test:
     - python <3.10
   imports:
     - fsspec
+    - fsspec.implementations
   commands:
     - pip check
 
