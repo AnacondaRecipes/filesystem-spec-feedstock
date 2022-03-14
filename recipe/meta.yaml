@@ -1,6 +1,6 @@
 {% set version = "2022.1.0" %}
 {% set name = "fsspec" %}
-{% set sha256 = "0bdd519bbf4d8c9a1d893a50b5ebacc89acd0e1fe0045d2f7b0e0c1af5990edc" %}
+{% set sha256 = "20322c659538501f52f6caa73b08b2ff570b7e8ea30a86559721d090e473ad5c" %}
 
 
 package:
@@ -14,7 +14,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [py<36]
+  skip: True  # [py<37]
   noarch: python
   script: {{ PYTHON }}  -m pip install . --no-deps --ignore-installed -vv
 
@@ -26,12 +26,11 @@ requirements:
     - setuptools
     - wheel
   run:
-    - python >=3.6
+    - python >=3.7
 
 test:
   requires:
     - pip
-    - python <3.10
   imports:
     - fsspec
     - fsspec.implementations
