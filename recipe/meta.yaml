@@ -1,4 +1,4 @@
-{% set version = "2022.1.0" %}
+{% set version = "2022.2.0" %}
 {% set name = "fsspec" %}
 {% set sha256 = "20322c659538501f52f6caa73b08b2ff570b7e8ea30a86559721d090e473ad5c" %}
 
