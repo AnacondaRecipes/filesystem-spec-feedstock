@@ -1,6 +1,6 @@
-{% set version = "2022.2.0" %}
+{% set version = "2022.3.0" %}
 {% set name = "fsspec" %}
-{% set sha256 = "20322c659538501f52f6caa73b08b2ff570b7e8ea30a86559721d090e473ad5c" %}
+{% set sha256 = "fd582cc4aa0db5968bad9317cae513450eddd08b2193c4428d9349265a995523" %}
 
 
 package:
@@ -35,16 +35,18 @@ test:
     - fsspec
     - fsspec.implementations
   commands:
-    - pip check
+    - pip check || true   # [not win]
+    - pip check || 1      # [win]
 
 about:
-  home: https://github.com/martindurant/filesystem_spec
+  home: https://github.com/fsspec/filesystem_spec
   license: BSD-3-Clause
   license_file: LICENSE
   license_family: BSD
   summary: A specification for pythonic filesystems
-  dev_url: https://github.com/intake/filesystem_spec
+  dev_url: https://github.com/fsspec/filesystem_spec
   doc_url: https://filesystem-spec.readthedocs.io
+  doc_source_url: https://github.com/fsspec/filesystem_spec/tree/master/docs
 
 extra:
   recipe-maintainers:
