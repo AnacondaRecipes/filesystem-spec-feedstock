@@ -25,7 +25,7 @@ requirements:
     - setuptools
     - wheel
   run:
-    - python >=3.7
+    - python
 
 test:
   requires:
