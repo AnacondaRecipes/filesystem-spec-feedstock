@@ -20,7 +20,6 @@ build:
 requirements:
   host:
     - python
-    - jinja2
     - pip
     - setuptools
     - wheel
