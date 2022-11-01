@@ -33,8 +33,7 @@ test:
     - fsspec
     - fsspec.implementations
   commands:
-    - pip check || true   # [not win]
-    - pip check || 1      # [win]
+    - pip check
 
 about:
   description : |
