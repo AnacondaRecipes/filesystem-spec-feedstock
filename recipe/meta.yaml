@@ -1,6 +1,6 @@
-{% set version = "2022.7.1" %}
+{% set version = "2022.10.0" %}
 {% set name = "fsspec" %}
-{% set sha256 = "7f9fb19d811b027b97c4636c6073eb53bc4cbee2d3c4b33fa88b9f26906fd7d7" %}
+{% set sha256 = "cb6092474e90487a51de768170f3afa50ca8982c26150a59072b16433879ff1d" %}
 
 
 package:
@@ -20,7 +20,6 @@ build:
 requirements:
   host:
     - python
-    - jinja2
     - pip
     - setuptools
     - wheel
@@ -34,14 +33,18 @@ test:
     - fsspec
     - fsspec.implementations
   commands:
-    - pip check || true   # [not win]
-    - pip check || 1      # [win]
+    - pip check
 
 about:
+  description : |
+    To produce a template or specification for a file-system interface, that specific implementations should follow, 
+    so that applications making use of them can rely on a common behaviour and not have to worry about the specific 
+    internal implementation decisions with any given backend.
   home: https://github.com/fsspec/filesystem_spec
   license: BSD-3-Clause
   license_file: LICENSE
   license_family: BSD
+  license_url: https://github.com/fsspec/filesystem_spec/blob/master/LICENSE
   summary: A specification for pythonic filesystems
   dev_url: https://github.com/fsspec/filesystem_spec
   doc_url: https://filesystem-spec.readthedocs.io/en/latest/
