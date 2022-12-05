@@ -44,13 +44,14 @@ about:
   license: BSD-3-Clause
   license_file: LICENSE
   license_family: BSD
-  license_url: https://github.com/fsspec/filesystem_spec/blob/master/LICENSE
   summary: A specification for pythonic filesystems
   dev_url: https://github.com/fsspec/filesystem_spec
   doc_url: https://filesystem-spec.readthedocs.io/en/latest/
-  doc_source_url: https://github.com/fsspec/filesystem_spec/tree/master/docs
 
 extra:
   recipe-maintainers:
     - martindurant
     - TomAugspurger
+  skip-lints:
+    - missing_doc_source_url
+    - missing_license_url
