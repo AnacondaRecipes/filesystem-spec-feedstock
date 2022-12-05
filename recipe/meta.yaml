@@ -46,7 +46,7 @@ about:
   license_family: BSD
   summary: A specification for pythonic filesystems
   dev_url: https://github.com/fsspec/filesystem_spec
-  doc_url: https://filesystem-spec.readthedocs.io/en/latest/
+  doc_url: https://filesystem-spec.readthedocs.io
 
 extra:
   recipe-maintainers:
