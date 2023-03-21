@@ -1,6 +1,6 @@
-{% set version = "2022.11.0" %}
+{% set version = "2023.3.0" %}
 {% set name = "fsspec" %}
-{% set sha256 = "259d5fd5c8e756ff2ea72f42e7613c32667dc2049a4ac3d84364a7ca034acb8b" %}
+{% set sha256 = "24e635549a590d74c6c18274ddd3ffab4753341753e923408b1904eaabafe04d" %}
 
 
 package:
@@ -46,12 +46,9 @@ about:
   license_family: BSD
   summary: A specification for pythonic filesystems
   dev_url: https://github.com/fsspec/filesystem_spec
-  doc_url: https://filesystem-spec.readthedocs.io
+  doc_url: https://filesystem-spec.readthedocs.io/en/latest/
 
 extra:
   recipe-maintainers:
     - martindurant
     - TomAugspurger
-  skip-lints:
-    - missing_doc_source_url
-    - missing_license_url
