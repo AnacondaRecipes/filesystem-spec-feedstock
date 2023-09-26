@@ -1,5 +1,5 @@
-{% set version = "2023.4.0" %}
 {% set name = "fsspec" %}
+{% set version = "2023.9.2" %}
 {% set sha256 = "bf064186cd8808f0b2f6517273339ba0a0c8fb1b7048991c28bc67f58b8b67cd" %}
 
 
@@ -8,13 +8,11 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 80bfb8c70cc27b2178cc62a935ecf242fc6e8c3fb801f9c571fc01b1e715ba7d
 
 build:
   number: 0
-  skip: True  # [py<38]
   script: {{ PYTHON }}  -m pip install . --no-deps --ignore-installed --no-build-isolation -vv
 
 requirements:
@@ -27,24 +25,24 @@ requirements:
     - python
 
 test:
-  requires:
-    - pip
   imports:
     - fsspec
     - fsspec.implementations
+  requires:
+    - pip
   commands:
     - pip check
 
 about:
-  description : |
-    To produce a template or specification for a file-system interface, that specific implementations should follow, 
-    so that applications making use of them can rely on a common behaviour and not have to worry about the specific 
-    internal implementation decisions with any given backend.
   home: https://github.com/fsspec/filesystem_spec
   license: BSD-3-Clause
   license_file: LICENSE
   license_family: BSD
   summary: A specification for pythonic filesystems
+  description : |
+    To produce a template or specification for a file-system interface, that specific implementations should follow, 
+    so that applications making use of them can rely on a common behaviour and not have to worry about the specific 
+    internal implementation decisions with any given backend.
   dev_url: https://github.com/fsspec/filesystem_spec
   doc_url: https://filesystem-spec.readthedocs.io/en/latest/
 
