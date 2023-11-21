@@ -1,6 +1,5 @@
 {% set name = "fsspec" %}
 {% set version = "2023.10.0" %}
-{% set sha256 = "330c66757591df346ad3091a53bd907e15348c2ba17d63fd54f5c39c4457d2a5" %}
 
 
 package:
@@ -9,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 80bfb8c70cc27b2178cc62a935ecf242fc6e8c3fb801f9c571fc01b1e715ba7d
+  sha256: 330c66757591df346ad3091a53bd907e15348c2ba17d63fd54f5c39c4457d2a5
 
 build:
   number: 0
