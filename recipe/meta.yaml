@@ -1,5 +1,5 @@
 {% set name = "fsspec" %}
-{% set version = "2024.3.1" %}
+{% set version = "2024.6.1" %}
 
 
 package:
@@ -8,18 +8,19 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f39780e282d7d117ffb42bb96992f8a90795e4d0fb0f661a70ca39fe9c43ded9
+  sha256: fad7d7e209dd4c1208e3bbfda706620e0da5142bebbd9c384afb95b07e798e49
 
 build:
   number: 0
+  skip: True  # [py<38]
   script: {{ PYTHON }}  -m pip install . --no-deps --ignore-installed --no-build-isolation -vv
 
 requirements:
   host:
     - python
     - pip
-    - setuptools
-    - wheel
+    - hatchling
+    - hatch-vcs
   run:
     - python
 
@@ -43,7 +44,7 @@ about:
     so that applications making use of them can rely on a common behaviour and not have to worry about the specific 
     internal implementation decisions with any given backend.
   dev_url: https://github.com/fsspec/filesystem_spec
-  doc_url: https://filesystem-spec.readthedocs.io/en/latest/
+  doc_url: https://filesystem-spec.readthedocs.io
 
 extra:
   recipe-maintainers:
