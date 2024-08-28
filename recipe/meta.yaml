@@ -23,6 +23,8 @@ requirements:
     - hatch-vcs
   run:
     - python
+  run_constrained:
+    - pyarrow >=1
 
 test:
   imports:
