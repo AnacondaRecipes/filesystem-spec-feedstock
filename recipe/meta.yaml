@@ -1,5 +1,5 @@
 {% set name = "fsspec" %}
-{% set version = "2024.10.0" %}
+{% set version = "2024.12.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: eda2d8a4116d4f2429db8550f2457da57279247dd930bb12f821b58391359493
+  sha256: 670700c977ed2fb51e0d9f9253177ed20cbde4a3e5c0283cc5385b5870c8533f
 
 build:
   number: 0
