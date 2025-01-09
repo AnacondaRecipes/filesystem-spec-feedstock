@@ -1,21 +1,19 @@
 {% set version = "2022.11.0" %}
 {% set name = "fsspec" %}
-{% set sha256 = "259d5fd5c8e756ff2ea72f42e7613c32667dc2049a4ac3d84364a7ca034acb8b" %}
-
 
 package:
   name: fsspec
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  #url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://github.com/{{ name }}/filesystem_spec/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 0c0c8373aba084c192396796eb3445841627fa16c7e43fc984439ae5b1b87545
 
 build:
   number: 0
   skip: True  # [py<37]
-  script: {{ PYTHON }}  -m pip install . --no-deps --ignore-installed -vv
+  script: {{ PYTHON }}  -m pip install . --no-deps --ignore-installed --no-build-isolation -vv
 
 requirements:
   host:
@@ -26,14 +24,24 @@ requirements:
   run:
     - python
 
+# fixture 'mocker' not found
+{% set deselect_tests = " --deselect=fsspec/tests/test_callbacks.py::test_tqdm_callback" %}
+
 test:
-  requires:
-    - pip
+  source_files:
+    - fsspec
   imports:
     - fsspec
     - fsspec.implementations
   commands:
     - pip check
+    - pytest -v {{ deselect_tests }} fsspec/tests
+  requires:
+    - pip
+    - pytest
+    - requests
+    - numpy
+    - aiohttp !=4.0.0a0,!=4.0.0a1
 
 about:
   description : |
