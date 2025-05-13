@@ -1,5 +1,5 @@
 {% set name = "fsspec" %}
-{% set version = "2024.12.0" %}
+{% set version = "2025.3.2" %}
 
 
 package:
@@ -7,13 +7,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 670700c977ed2fb51e0d9f9253177ed20cbde4a3e5c0283cc5385b5870c8533f
+  url: https://github.com/{{ name }}/filesystem_spec/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 0388329e9130a7d936bf960d1502ff17b6defe7dacab54daa7991885cf9a2702
 
 build:
   number: 0
-  skip: True  # [py<38]
   script: {{ PYTHON }}  -m pip install . --no-deps --ignore-installed --no-build-isolation -vv
+  skip: True  # [py<39]
 
 requirements:
   host:
@@ -25,15 +25,25 @@ requirements:
     - python
   run_constrained:
     - pyarrow >=1
+    - aiohttp !=4.0.0a0, !=4.0.0a1
 
 test:
+  source_files:
+    - fsspec
   imports:
     - fsspec
     - fsspec.implementations
-  requires:
-    - pip
   commands:
     - pip check
+    - pytest -v fsspec/tests -m asyncio
+  requires:
+    - pip
+    - pytest
+    - pytest-mock
+    - pytest-asyncio !=0.22.0
+    - aiohttp !=4.0.0a0,!=4.0.0a1
+    - requests
+    - numpy
 
 about:
   home: https://github.com/fsspec/filesystem_spec
