@@ -1,5 +1,5 @@
 {% set name = "fsspec" %}
-{% set version = "2025.5.0" %}
+{% set version = "2025.5.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/{{ name }}/filesystem_spec/archive/refs/tags/{{ version }}.tar.gz
-  sha256: d5f4ca010ecae3e1256eef865ff10fe24457142635e9693fd823fc1e8cd5311b
+  sha256: a71eacc36f0a5cefcd8c7b0754cba1970a51e4d6c9b1a6c08ecc9ad01923acd5
 
 build:
   number: 0
