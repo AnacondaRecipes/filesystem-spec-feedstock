@@ -1,6 +1,5 @@
 {% set name = "fsspec" %}
-{% set version = "2025.3.2" %}
-
+{% set version = "2025.5.0" %}
 
 package:
   name: {{ name }}
@@ -8,12 +7,12 @@ package:
 
 source:
   url: https://github.com/{{ name }}/filesystem_spec/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 0388329e9130a7d936bf960d1502ff17b6defe7dacab54daa7991885cf9a2702
+  sha256: d5f4ca010ecae3e1256eef865ff10fe24457142635e9693fd823fc1e8cd5311b
 
 build:
   number: 0
   script: {{ PYTHON }}  -m pip install . --no-deps --ignore-installed --no-build-isolation -vv
-  skip: True  # [py<39]
+  skip: true  # [py<39]
 
 requirements:
   host:
@@ -33,9 +32,23 @@ test:
   imports:
     - fsspec
     - fsspec.implementations
+    - fsspec.archive
+    - fsspec.asyn
+    - fsspec.caching
+    - fsspec.callbacks
+    - fsspec.compression
+    - fsspec.config
+    - fsspec.core
+    - fsspec.exceptions
+    - fsspec.registry
+    - fsspec.spec
+    - fsspec.transaction
+    - fsspec.utils
   commands:
     - pip check
-    - pytest -v fsspec/tests -m asyncio
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+    # FAILED fsspec/tests/test_spec.py::test_posix_tests_bash_stat[test0/*.yaml-expected37] - AssertionError: assert ['‘test0/test0.yaml’'] == ['test0/test0.yaml']
+    - pytest -v -k "not (test_posix_tests_bash_stat)" fsspec/tests
   requires:
     - pip
     - pytest
@@ -51,9 +64,9 @@ about:
   license_file: LICENSE
   license_family: BSD
   summary: A specification for pythonic filesystems
-  description : |
-    To produce a template or specification for a file-system interface, that specific implementations should follow, 
-    so that applications making use of them can rely on a common behaviour and not have to worry about the specific 
+  description: |
+    To produce a template or specification for a file-system interface, that specific implementations should follow,
+    so that applications making use of them can rely on a common behaviour and not have to worry about the specific
     internal implementation decisions with any given backend.
   dev_url: https://github.com/fsspec/filesystem_spec
   doc_url: https://filesystem-spec.readthedocs.io
