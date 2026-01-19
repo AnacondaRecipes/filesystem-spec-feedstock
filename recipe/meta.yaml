@@ -25,6 +25,8 @@ requirements:
   run_constrained:
     - pyarrow >=1
     - aiohttp !=4.0.0a0,!=4.0.0a1
+    - gcsfs >2024.2.0
+    - s3fs >2024.2.0
 
 test:
   source_files:
