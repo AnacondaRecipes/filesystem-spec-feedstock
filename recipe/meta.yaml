@@ -50,8 +50,7 @@ test:
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
-    # FAILED fsspec/tests/test_spec.py::test_posix_tests_bash_stat[test0/*.yaml-expected37] - AssertionError: assert ['‘test0/test0.yaml’'] == ['test0/test0.yaml']
-    - pytest -v -k "not (test_posix_tests_bash_stat)" fsspec/tests
+    - pytest -vv fsspec/tests
   requires:
     - pip
     - pytest
