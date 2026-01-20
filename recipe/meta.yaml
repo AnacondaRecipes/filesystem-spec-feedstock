@@ -1,5 +1,5 @@
 {% set name = "fsspec" %}
-{% set version = "2025.12.0" %}
+{% set version = "2026.1.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/{{ name }}/filesystem_spec/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 4bb9e82dd5b95db6bc2a21b85629dc9e30b949c615e70163d709e5e00746e342
+  sha256: 5f3c5b6ce1f4fa6d751893d329967a1ae5de922d73b656c5eb814bcbc424e5ee
 
 build:
   number: 0
@@ -25,6 +25,8 @@ requirements:
   run_constrained:
     - pyarrow >=1
     - aiohttp !=4.0.0a0,!=4.0.0a1
+    - gcsfs >2024.2.0
+    - s3fs >2024.2.0
 
 test:
   source_files:
@@ -48,8 +50,7 @@ test:
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
-    # FAILED fsspec/tests/test_spec.py::test_posix_tests_bash_stat[test0/*.yaml-expected37] - AssertionError: assert ['‘test0/test0.yaml’'] == ['test0/test0.yaml']
-    - pytest -v -k "not (test_posix_tests_bash_stat)" fsspec/tests
+    - pytest -vv fsspec/tests
   requires:
     - pip
     - pytest
