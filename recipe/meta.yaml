@@ -68,6 +68,7 @@ test:
   downstreams:
     - snowflake-ml-python
     - datasets
+    - s3fs
 
 about:
   home: https://github.com/fsspec/filesystem_spec
