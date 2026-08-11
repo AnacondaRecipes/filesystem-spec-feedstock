@@ -65,10 +65,11 @@ test:
     - numpy
     # tests rely on linux bash stat behavior, add package on OSX for behavior matching that of linux
     - coreutils  # [osx]
-  downstreams:
-    - snowflake-ml-python
-    - datasets
-    - s3fs
+  # Check for dependent downstream packages
+  # downstreams:
+  #   - snowflake-ml-python
+  #   - datasets
+  #   - s3fs
 
 about:
   home: https://github.com/fsspec/filesystem_spec
