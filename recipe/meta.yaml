@@ -1,5 +1,5 @@
 {% set name = "fsspec" %}
-{% set version = "2026.6.0" %}
+{% set version = "2026.7.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/{{ name }}/filesystem_spec/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 22bf4df50243bc7b1f724e6adf3831f6f7c7932e975e982c00903aba1a07ae01
+  sha256: c876aee137711240d4f821a5d8811ed19bde9df504d941cac22a116075de1ebc
 
 build:
   number: 0
@@ -25,8 +25,8 @@ requirements:
   run_constrained:
     - pyarrow >=1
     - aiohttp !=4.0.0a0,!=4.0.0a1
-    - gcsfs >2024.2.0
-    - s3fs >2024.2.0
+    - gcsfs >=2026.4.0
+    - s3fs >=2026.6.0
 
 test:
   source_files:
