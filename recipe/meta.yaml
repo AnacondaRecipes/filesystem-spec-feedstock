@@ -65,7 +65,7 @@ test:
     - numpy
     # tests rely on linux bash stat behavior, add package on OSX for behavior matching that of linux
     - coreutils  # [osx]
-  Check for dependent downstream packages
+  # Check for dependent downstream packages
   downstreams:
     - snowflake-ml-python
     - datasets
